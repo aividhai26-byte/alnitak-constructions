@@ -1,0 +1,283 @@
+/* Responsive CSS - Breakpoints & Mobile Overrides for Alnitak Constructions */
+
+/* ==========================================
+   MEDIUM TABLETS & SMALLER (<= 992px)
+   ========================================== */
+@media screen and (max-width: 992px) {
+    /* Header & Navbar Collapse */
+    .logo-box {
+        height: 70px;
+        width: 180px;
+    }
+    
+    .logo-box img {
+        height: 55px;
+    }
+    
+    .header-top-bar {
+        display: none !important; /* Hide contact top bar on mobile */
+    }
+    
+    .header-main-nav {
+        padding-left: 195px;
+        padding-right: 1.5rem;
+    }
+    
+    .nav-links-wrapper,
+    .nav-links-wrapper nav {
+        display: contents;
+    }
+    
+    /* Mobile Menu Toggle Button show */
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    /* Sliding Mobile Navigation Menu Drawer */
+    .nav-menu-list {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--bg-darker);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 80px 2rem 2rem 2rem;
+        gap: 1.5rem;
+        z-index: 99;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.25);
+        transition: right var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+    }
+    
+    .nav-menu-list.active {
+        right: 0;
+    }
+    
+    .nav-menu-list li {
+        width: 100%;
+        height: auto;
+    }
+    
+    .nav-menu-list a {
+        padding: 0.75rem 0;
+        font-size: 1.15rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-menu-list a::after {
+        display: none; /* Hide border bar */
+    }
+    
+    /* Split layouts collapse to vertical */
+    .split-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    
+    .overlap-image-container {
+        height: 420px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    /* Grid system stack */
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+    
+    .pricing-card.highlighted {
+        transform: none;
+    }
+    
+    .pricing-card.highlighted:hover {
+        transform: translateY(-5px);
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* ==========================================
+   SMARTPHONES (<= 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* Sections spacing */
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Hero slider sizes */
+    .hero-slider-content .hero-heading {
+        font-size: 2.5rem;
+    }
+    
+    .hero-slider-content .hero-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 1.75rem;
+    }
+    
+    .hero-slider-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .hero-slider-arrow-prev {
+        left: 10px;
+    }
+    
+    .hero-slider-arrow-next {
+        right: 10px;
+    }
+    
+    /* Overlapping images shrink */
+    .overlap-image-container {
+        height: 320px;
+    }
+    
+    .overlap-img-front {
+        border-width: 6px;
+    }
+    
+    /* Stats grid stack */
+    .stats-grid-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-item-premium {
+        padding: 0;
+    }
+    
+    .stat-item-premium:not(:last-child)::after {
+        display: none;
+    }
+    
+    /* Testimonials stack to single */
+    .testimonials-slide-wrapper {
+        flex: 0 0 100%;
+    }
+    
+    /* Process timeline horizontal -> vertical */
+    .process-timeline-row {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .process-line-connector {
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        right: auto;
+        width: 2px;
+        height: 100%;
+    }
+    
+    .process-step-node {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        padding: 0;
+    }
+    
+    .process-step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+    }
+    
+    .process-step-title {
+        font-size: 1.15rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Portfolio masonry stack */
+    .portfolio-masonry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================
+   EXTRA SMALL SCREENS (<= 576px)
+   ========================================== */
+@media screen and (max-width: 576px) {
+    /* Forms collapse */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-group-full {
+        grid-column: span 1;
+    }
+    
+    /* Grid system single column */
+    .grid-3, .grid-4, .services-grid-wrapper, .portfolio-masonry-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .hero-slider-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .hero-slider-buttons .btn {
+        width: 100%;
+    }
+    
+    .floating-actions-bar {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .float-action-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+}

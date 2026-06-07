@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Alnitak Constructions - Premier construction, elevation designing, planning, approvals, and bank loan assistance services in Tiruppur, Tamil Nadu.">
+    <meta name="keywords" content="Alnitak Constructions, construction company Tiruppur, building builders, elevation designing Tiruppur, building plans, municipal approval Tiruppur, bank loan construction, Ramkumar Magheshwaran">
+    <meta name="author" content="Alnitak Constructions">
+    <title>{% block title %}Alnitak Constructions{% endblock %} - Construction & Designing</title>
+    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <!-- Google Fonts: Barlow Condensed (Headings) + Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Scroll Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Core CSS stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    
+    <!-- Premium Header Structure (Bildhub Inspired) -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                
+                <!-- Logo Box: Spans both contact row and navbar -->
+                <div class="logo-box">
+                    <a href="{{ url_for('main.index') }}">
+                        <img src="{{ url_for('static', filename='images/alnitak_logo-bg.png') }}" alt="Alnitak Constructions Logo">
+                    </a>
+                </div>
+                
+                <!-- Top Header Row: Contact & Socials -->
+                <div class="header-top-bar">
+                    <div class="top-contact-info">
+                        <div class="contact-block">
+                            <div class="contact-icon-wrapper">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="contact-block-details">
+                                <span class="contact-block-label">Email Address</span>
+                                <span class="contact-block-value">alnitakconstructions@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-block">
+                            <div class="contact-icon-wrapper">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div class="contact-block-details">
+                                <span class="contact-block-label">Phone Number</span>
+                                <span class="contact-block-value">+91 63822 78908</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="top-social-connect">
+                        <span class="social-connect-label">Quick Connect:</span>
+                        <div class="top-social-links">
+                            <a href="https://www.instagram.com/alnitak_construction/" target="_blank" rel="noopener" class="top-social-link" aria-label="Instagram">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                            </a>
+                            <a href="https://www.facebook.com/Ramkumar Maheswaran" target="_blank" rel="noopener" class="top-social-link" aria-label="Facebook">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Header Row: Navigation Menu -->
+                <div class="header-main-nav">
+                    
+                    <!-- Mobile Hamburger (shown only on mobile) -->
+                    <button class="mobile-nav-toggle" aria-label="Toggle Navigation">&#x2630;</button>
+                    
+                    <div class="nav-links-wrapper">
+                        <nav>
+                            <ul class="nav-menu-list">
+                                <li><a href="{{ url_for('main.index') }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                                <li><a href="{{ url_for('main.about') }}" class="{% if request.path == '/about' %}active{% endif %}">About</a></li>
+                                <li><a href="{{ url_for('main.services') }}" class="{% if request.path == '/services' %}active{% endif %}">Services</a></li>
+                                <li><a href="{{ url_for('main.projects') }}" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a></li>
+                                <li><a href="{{ url_for('main.process_page') }}" class="{% if request.path == '/process' %}active{% endif %}">Process</a></li>
+                                <li><a href="{{ url_for('main.pricing') }}" class="{% if request.path == '/pricing' %}active{% endif %}">Pricing</a></li>
+                                <li><a href="{{ url_for('main.faq') }}" class="{% if request.path == '/faq' %}active{% endif %}">FAQ</a></li>
+                                <li><a href="{{ url_for('main.contact') }}" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <!-- Quote Button -->
+                    <div class="nav-cta-btn">
+                        <a href="#" onclick="openBrochureModal(event)" class="btn btn-outline">Get A Quote</a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content Container -->
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages" style="position: fixed; top: 100px; right: 20px; z-index: 1001; display: flex; flex-direction: column; gap: 10px;">
+                    {% for category, message in messages %}
+                        <div class="flash-message alert-{{ category }}" style="background-color: var(--primary-blue); color: white; padding: 1rem 1.5rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-md); cursor: pointer; transition: opacity var(--transition-fast) ease;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Premium Dark Footer -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand details & Socials -->
+                <div class="footer-column">
+                    <img src="{{ url_for('static', filename='images/alnitak_logo-bg.png') }}" alt="Alnitak Constructions Logo" class="footer-logo-img">
+                    <p class="footer-tagline">Building Tiruppur's future with quality, Vaastu compliance, and unwavering trust. Over 12+ years of civil construction excellence.</p>
+                    <div class="footer-social-links">
+                        <a href="https://www.instagram.com/alnitak_construction/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                        </a>
+                        <a href="https://www.facebook.com/Ramkumar Maheswaran" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Alnitak_Construction" target="_blank" rel="noopener" class="footer-social-link" aria-label="YouTube">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                        <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Our Services</a></li>
+                        <li><a href="{{ url_for('main.projects') }}">Our Portfolio</a></li>
+                        <li><a href="{{ url_for('main.process_page') }}">Process</a></li>
+                        <li><a href="{{ url_for('main.pricing') }}">Pricing</a></li>
+                        <li><a href="{{ url_for('main.faq') }}">FAQ</a></li>
+                        <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Services List -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="{{ url_for('main.services') }}">Civil Construction</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Elevation Designing</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Vaastu Planning</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Building Approvals</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Interior Designing</a></li>
+                        <li><a href="{{ url_for('main.services') }}">Bank Loan Arrangements</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact details -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact Details</h4>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+                            <span>Bus Stop, Ramanathapuram Extn, First St, Mettupalayam, Tiruppur, Tamil Nadu 641602</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+91 63822 78908</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>alnitakconstructions@gmail.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>Mon - Sat: 9:00 AM - 6:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-divider-line"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alnitak Constructions. All rights reserved. | Registration No: TN-28-0078526</p>
+                <p>Designed and maintained by <a href="https://vidhai.ai" target="_blank" rel="noopener" class="footer-bottom-credit">Vidhai AI Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons Stack (Phone & WhatsApp) -->
+    <div class="floating-actions-bar">
+        <!-- Phone Link -->
+        <a href="tel:+916382278908" class="float-action-btn float-phone-btn" aria-label="Call Us Now">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+        </a>
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/916382278908?text=Hello%20Alnitak%20Constructions!%20I%20would%20like%20to%20discuss%20building%20my%20dream%20project." target="_blank" rel="noopener" class="float-action-btn float-whatsapp-btn" aria-label="WhatsApp Us">
+            <svg viewBox="0 0 32 32" fill="currentColor" width="26" height="26">
+                <path d="M16 2C8.269 2 2 8.269 2 16c0 2.48.646 4.815 1.777 6.85L2.058 29.79l7.012-1.842C11.071 29.036 13.486 29.698 16 29.698c7.731 0 14-6.269 14-14S23.731 2 16 2zm0 25.698c-2.234 0-4.364-.6-6.254-1.736l-.45-.267-4.69 1.231 1.252-4.571-.296-.468C4.642 19.98 4 17.997 4 16c0-6.617 5.383-12 12-12s12 5.383 12 12-5.383 12-12 12zm6.585-8.996c-.362-.181-2.138-1.055-2.469-1.176-.331-.121-.572-.181-.813.181-.241.362-.934 1.176-1.145 1.417-.211.241-.422.271-.784.09-.362-.181-1.527-.562-2.91-1.796-1.078-.962-1.806-2.15-2.017-2.512-.211-.362-.022-.558.159-.739.163-.163.362-.422.543-.633.181-.211.241-.362.362-.603.121-.241.06-.452-.03-.633-.09-.181-.813-1.958-1.115-2.681-.293-.702-.591-.607-.813-.618-.211-.011-.452-.011-.693-.011-.241 0-.633.09-.964.452-.331.362-1.265 1.236-1.265 3.013 0 1.777 1.295 3.493 1.476 3.734.181.241 2.549 3.887 6.174 5.45.862.372 1.536.595 2.063.762.872.277 1.665.238 2.293.144.7-.103 2.138-.874 2.44-1.717.301-.843.301-1.565.211-1.717-.09-.151-.331-.241-.693-.422z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Brochure Download Modal Widget -->
+    <div id="brochureModal" class="brochure-modal-overlay">
+        <div class="brochure-modal-content">
+            <button class="brochure-modal-close" onclick="closeBrochureModal()">&times;</button>
+            <div class="text-center" style="margin-bottom: 2rem;">
+                <span class="section-label">PRICING PACKAGES</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Download Brochure</h3>
+                <p style="font-size: 0.9rem; color: #5a6578; font-weight: 300;">Choose and download our comprehensive construction cost breakdowns and spec sheets.</p>
+            </div>
+            
+            <div class="brochure-cards-container">
+                <a href="#" onclick="alert('Alnitak Constructions brochure is currently being updated and will be available to download soon!'); return false;" class="brochure-plan-link">
+                    <div class="brochure-plan-details">
+                        <span class="brochure-plan-title">🏡 Rs. 2350 / Sq.Ft</span>
+                        <span class="brochure-plan-desc">Budget Plan — Standard finishes & accessories specs</span>
+                    </div>
+                    <span class="brochure-download-arrow">↓</span>
+                </a>
+                <a href="#" onclick="alert('Alnitak Constructions brochure is currently being updated and will be available to download soon!'); return false;" class="brochure-plan-link">
+                    <div class="brochure-plan-details">
+                        <span class="brochure-plan-title">🏢 Rs. 2550 / Sq.Ft</span>
+                        <span class="brochure-plan-desc">Standard Plan — Premium fittings & accessories specs</span>
+                    </div>
+                    <span class="brochure-download-arrow">↓</span>
+                </a>
+                <a href="#" onclick="alert('Alnitak Constructions brochure is currently being updated and will be available to download soon!'); return false;" class="brochure-plan-link">
+                    <div class="brochure-plan-details">
+                        <span class="brochure-plan-title">🏰 Rs. 2850 / Sq.Ft</span>
+                        <span class="brochure-plan-desc">Luxury Plan — High-end custom woodworks & luxury finishes</span>
+                    </div>
+                    <span class="brochure-download-arrow">↓</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Javascript Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Lenis Smooth Scroll CDN -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        // Start smooth scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            lerp: 0.1,
+            wheelMultiplier: 1,
+            smoothWheel: true,
+            smoothTouch: false
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        window.lenis = lenis;
+    </script>
+    
+    <!-- AOS Scroll Trigger CDN -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

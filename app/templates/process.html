@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}Our Process - Alnitak Constructions{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    .process-grid-2x2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    
+    .process-card-detailed {
+        background-color: var(--text-white);
+        border: 1px solid var(--border-color);
+        padding: 3rem 2.5rem;
+        position: relative;
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-normal) ease;
+    }
+    
+    .process-card-detailed::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: var(--primary-blue);
+        transform: scaleY(0);
+        transition: transform var(--transition-normal) ease;
+    }
+    
+    .process-card-detailed:hover::before {
+        transform: scaleY(1);
+    }
+    
+    .process-card-detailed:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: transparent;
+    }
+    
+    .process-badge-num {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--blue-light);
+        color: var(--primary-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    
+    .process-card-detailed:hover .process-badge-num {
+        background-color: var(--primary-blue);
+        color: var(--text-white);
+    }
+    
+    .process-card-title {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--bg-darker);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+    
+    .process-card-desc {
+        font-size: 0.95rem;
+        color: #4a5568;
+        line-height: 1.7;
+        font-weight: 300;
+    }
+    
+    /* Mobile Timeline */
+    .vertical-timeline {
+        display: none;
+        position: relative;
+        padding-left: 2.5rem;
+        margin-top: 2rem;
+    }
+    
+    .vertical-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        width: 2px;
+        background-color: var(--border-color);
+    }
+    
+    .timeline-node-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+    }
+    
+    .timeline-node-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .timeline-node-dot {
+        position: absolute;
+        left: -2.5rem;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--primary-blue);
+        color: var(--text-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 0.95rem;
+        border: 3px solid var(--text-white);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-node-title {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--bg-darker);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+    
+    .timeline-node-desc {
+        font-size: 0.9rem;
+        color: #5a6578;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .process-grid-2x2 {
+            display: none; /* Hide 2x2 grid on mobile */
+        }
+        
+        .vertical-timeline {
+            display: block; /* Show vertical timeline on mobile */
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Hero Banner -->
+<section class="page-hero-banner" style="background-image: url('{{ url_for('static', filename='images/workersonsite.jpg') }}');">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+        <h1 class="page-hero-title">Our Process</h1>
+        <div class="breadcrumb-list">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <span class="breadcrumb-separator">&rarr;</span>
+            <span class="active">Our Process</span>
+        </div>
+    </div>
+</section>
+
+<!-- Full Process Breakdown -->
+<section class="section">
+    <div class="container">
+        
+        <div class="text-center mb-xl">
+            <span class="section-label">Workflow</span>
+            <h2 class="section-title">How We Build</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">Our step-by-step methodology ensures that all designs comply with planning corporation rules and Vaastu before site excavation begins.</p>
+        </div>
+        
+        <!-- 2x2 Desktop Grid -->
+        <div class="process-grid-2x2">
+            <!-- Step 1 -->
+            <div class="process-card-detailed" data-aos="fade-up">
+                <div class="process-badge-num">01</div>
+                <h3 class="process-card-title">Phase 1: Planning</h3>
+                <p class="process-card-desc">We begin with in-depth client consultations, site measurements, and structural analysis. Our draftsmen map out initial 2D floor layouts, room requirements, and optimize natural wind and light flows according to authentic Vaastu parameters.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="process-card-detailed" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-badge-num">02</div>
+                <h3 class="process-card-title">Phase 2: Elevation & Design</h3>
+                <p class="process-card-desc">Once the 2D layout is finalized, we render premium 3D front elevations. We specify exterior claddings, structural components, and balcony framing details, providing a complete photorealistic visualization of your villa or complex.</p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="process-card-detailed" data-aos="fade-up">
+                <div class="process-badge-num">03</div>
+                <h3 class="process-card-title">Phase 3: Approvals & Banking</h3>
+                <p class="process-card-desc">We compile all blueprints and submit corporation files directly to municipal authorities for approvals. Concurrently, our financial liaison helps coordinate bank building loans, handling all file documentation requirements seamlessly.</p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="process-card-detailed" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-badge-num">04</div>
+                <h3 class="process-card-title">Phase 4: Site Construction</h3>
+                <p class="process-card-desc">Our experienced structural engineers take over the site. We handle excavation, RCC framework casting, brick masonry, wiring, tiling, modular woodworks, and finishes, ensuring strict compliance checks until key handover.</p>
+            </div>
+        </div>
+        
+        <!-- Mobile Timeline (only visible on mobile screens) -->
+        <div class="vertical-timeline">
+            <!-- Item 1 -->
+            <div class="timeline-node-item">
+                <div class="timeline-node-dot">1</div>
+                <h4 class="timeline-node-title">Phase 1: Planning</h4>
+                <p class="timeline-node-desc">Custom 2D layout drafting, site measurements, and Vaastu spatial evaluations.</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="timeline-node-item">
+                <div class="timeline-node-dot">2</div>
+                <h4 class="timeline-node-title">Phase 2: Elevation & Design</h4>
+                <p class="timeline-node-desc">Photorealistic 3D front elevations, cladding design, and structural spec sheets.</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="timeline-node-item">
+                <div class="timeline-node-dot">3</div>
+                <h4 class="timeline-node-title">Phase 3: Approvals & Banking</h4>
+                <p class="timeline-node-desc">Municipal corporate approvals and housing loan file arrangements directly handled.</p>
+            </div>
+            <!-- Item 4 -->
+            <div class="timeline-node-item">
+                <div class="timeline-node-dot">4</div>
+                <h4 class="timeline-node-title">Phase 4: Site Construction</h4>
+                <p class="timeline-node-desc">RCC casting, bricklaying, electrical installations, premium finishes, and key handover.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CTA Reusable Banner -->
+<section class="section" style="background-color: var(--bg-dark); color: var(--text-white); border-top: 1px solid var(--border-color);">
+    <div class="container">
+        <div class="split-wrapper" style="align-items: center;">
+            <div>
+                <h2 class="section-title" style="color: var(--text-white); margin-bottom: 0.75rem;">Want to consult on a building plan?</h2>
+                <p style="color: var(--text-light); margin: 0; font-weight: 300;">Bring your plot coordinates or site directions, and we will sketch a preliminary Vaastu plan for you.</p>
+            </div>
+            <div class="flex gap-md" style="justify-content: flex-end; align-items: center; flex-wrap: wrap;">
+                <a href="/contact" class="btn btn-primary">Book Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <a href="https://wa.me/916382278908?text=I%20want%20to%20consult%20on%20a%20building%20plan." target="_blank" rel="noopener" class="btn btn-outline-white">WhatsApp Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

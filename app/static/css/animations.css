@@ -1,0 +1,104 @@
+/* Animations CSS - Custom entrance keyframes and timing modifiers */
+
+/* ==========================================
+   ENTRANCE ANIMATIONS (KEYFRAMES)
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   ANIMATION CLASS DECLARATIONS
+   ========================================== */
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Timing Modifiers */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ==========================================
+   MICRO-INTERACTION TRIGGERS
+   ========================================== */
+.hover-lift {
+    transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow var(--transition-normal) ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hover-slide-right {
+    display: inline-flex;
+    align-items: center;
+}
+
+.hover-slide-right svg {
+    transition: transform var(--transition-fast) ease;
+}
+
+.hover-slide-right:hover svg {
+    transform: translateX(5px);
+}

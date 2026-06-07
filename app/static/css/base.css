@@ -1,0 +1,272 @@
+/* Base CSS - Variables, Reset, Typography, Global Styles for Alnitak Constructions */
+
+/* CSS Variables */
+:root {
+    /* Brand Colors */
+    --primary-blue: #2596BE;
+    --blue-dark: #1A7A9E;
+    --blue-light: rgba(37, 150, 190, 0.12);
+    --bg-dark: #15222e;
+    --bg-darker: #1a252f;
+    --text-white: #FFFFFF;
+    --text-light: #E0E6ED;
+    --text-muted: #8B98A5;
+    --charcoal: #1A1A2E;
+    --light-bg: #F5F7FA;
+    --border-color: #DEE6EF;
+    
+    /* Typography */
+    --font-heading: 'Barlow Condensed', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-weight-heading: 700;
+    --font-weight-body: 400;
+    
+    /* Spacing - Generous spacing for premium feel */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 3.5rem;
+    --spacing-3xl: 6rem; /* generosity */
+    
+    /* Transitions */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.35s;
+    --transition-slow: 0.6s;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(13, 17, 23, 0.05);
+    --shadow-md: 0 12px 28px rgba(13, 17, 23, 0.08);
+    --shadow-lg: 0 24px 48px rgba(13, 17, 23, 0.12);
+    
+    /* Border Radius - Premium sharp corners (2px max) */
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 2px;
+    
+    /* Z-indices */
+    --z-dropdown: 1000;
+    --z-sticky: 100;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    
+    /* Container Widths */
+    --container-max: 1200px;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto; /* Handled by Lenis */
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+    background-color: var(--text-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Typography Hierarchy - Bold, Industrial, High Contrast */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: 1.15;
+    color: var(--bg-darker);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    font-family: var(--font-body);
+    color: #4a5568;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: all var(--transition-fast) ease-in-out;
+}
+
+a:hover {
+    color: var(--blue-dark);
+}
+
+/* Base Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Section Spacing */
+.section {
+    padding: var(--spacing-3xl) 0;
+}
+
+.section-label {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 20px;
+}
+
+.section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 2px;
+    background-color: var(--primary-blue);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--bg-darker);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: #718096;
+    max-width: 600px;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 300;
+}
+
+/* Grid & Layout Utilities */
+.grid {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.pt-xl { padding-top: var(--spacing-xl); }
+.pb-xl { padding-bottom: var(--spacing-xl); }
+
+/* Flexbox Utilities */
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+
+.gap-sm { gap: var(--spacing-xs); }
+.gap-md { gap: var(--spacing-sm); }
+.gap-lg { gap: var(--spacing-md); }
+
+/* Images and Icons */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Reset Lists */
+ul {
+    list-style: none;
+}
+
+.hidden {
+    display: none !important;
+}

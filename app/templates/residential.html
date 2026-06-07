@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block title %}Residential Homes - Alnitak Constructions{% endblock %}
+
+{% block extra_css %}
+<style>
+body { background: #FFFFFF; }
+
+/* HERO */
+.res-hero {
+    position: relative; height: 88vh; min-height: 580px;
+    display: flex; align-items: center;
+    background-image: linear-gradient(to right, rgba(20,20,23,0.88) 0%, rgba(20,20,23,0.35) 100%),
+        url('{{ url_for("static", filename="images/exteriors/sumathi_mam_final_elevation_sumathi_mam_3.1.jpg") }}');
+    background-size: cover; background-position: center 15%; color: #fff;
+}
+.res-hero-inner { max-width: 680px; }
+.res-hero-tag { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.25em; color:#2596BE; display:block; margin-bottom:1.2rem; }
+.res-hero-title { font-family:'Cormorant Garamond',serif; font-size:4.5rem; font-weight:700; line-height:1.08; margin-bottom:1rem; }
+.res-hero-title span { color:#2596BE; }
+.res-hero-sub { font-family:'DM Sans',sans-serif; font-size:1.15rem; color:rgba(255,255,255,0.8); line-height:1.7; max-width:540px; margin-bottom:2.5rem; }
+.res-hero-cta { display:inline-block; background:#2596BE; color:#fff; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.1em; padding:1rem 2.5rem; text-decoration:none; transition:background 0.3s; }
+.res-hero-cta:hover { background:#D4A017; }
+
+/* STORY SECTION */
+.res-story { padding:7rem 0; background:#fff; }
+.res-story-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.res-story-label { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#2596BE; display:block; margin-bottom:1rem; }
+.res-story-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:700; color:#28282B; line-height:1.15; margin-bottom:1.5rem; }
+.res-story-text { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4A5568; line-height:1.9; margin-bottom:1.2rem; }
+.res-story-img { width:100%; height:480px; object-fit:cover; border-radius:4px; box-shadow:0 20px 50px rgba(0,0,0,0.1); }
+
+/* AMENITIES */
+.res-amenities { padding:7rem 0; background:#FAFAFA; }
+.res-sec-header { text-align:center; margin-bottom:4rem; }
+.res-sec-label { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#2596BE; display:block; margin-bottom:0.75rem; }
+.res-sec-title { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:700; color:#28282B; }
+.amenities-story-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.amenity-card { position:relative; height:280px; overflow:hidden; border-radius:4px; cursor:pointer; }
+.amenity-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+.amenity-card:hover img { transform:scale(1.06); }
+.amenity-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(20,20,23,0.85) 0%,rgba(20,20,23,0.1) 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:1.5rem; }
+.amenity-card-icon { font-size:1.8rem; margin-bottom:0.5rem; }
+.amenity-card-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:0.2rem; }
+.amenity-card-sub { font-family:'DM Sans',sans-serif; font-size:0.78rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em; }
+
+/* GALLERY */
+.res-gallery { padding:7rem 0; background:#fff; }
+.res-gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.gallery-item { position:relative; overflow:hidden; height:220px; border-radius:4px; background:#28282B; cursor:pointer; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+.gallery-item:hover img { transform:scale(1.05); }
+.gallery-overlay { position:absolute; inset:0; background:rgba(40,40,43,0.82); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; border:3px solid #2596BE; box-sizing:border-box; transform:translateY(-100%); }
+.overlay-title { font-family:'Cormorant Garamond',serif; color:#fff; font-size:1.8rem; margin-bottom:0.4rem; }
+.overlay-desc { font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.8); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; }
+
+/* SPECS */
+.res-specs { padding:7rem 0; background:#FAFAFA; }
+.specs-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
+.spec-block { margin-bottom:2rem; }
+.spec-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:#28282B; margin-bottom:0.75rem; border-bottom:2px solid #2596BE; padding-bottom:0.4rem; display:inline-block; }
+.spec-desc { font-family:'DM Sans',sans-serif; font-size:0.95rem; color:#4A5568; line-height:1.8; }
+
+/* PAYMENT */
+.res-payment { padding:7rem 0; background:#fff; }
+.payment-split { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.payment-plan-box { background:#28282B; color:#fff; padding:3rem; border-radius:4px; }
+.payment-plan-box h3 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#2596BE; margin-bottom:1.5rem; }
+.payment-step-list { list-style:none; padding:0; }
+.payment-step-list li { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.85); padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; gap:1rem; align-items:flex-start; }
+.payment-step-list li:last-child { border-bottom:none; }
+.pay-pct { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:#2596BE; line-height:1; flex-shrink:0; min-width:50px; }
+
+/* CTA */
+.res-cta { background:#28282B; padding:6rem 0; text-align:center; color:#fff; }
+.res-cta h2 { font-family:'Cormorant Garamond',serif; font-size:3rem; margin-bottom:1rem; color:#ffffff !important; }
+.res-cta p { font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.85) !important; margin-bottom:2.5rem; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.7; }
+
+/* RESPONSIVE */
+@media(max-width:1024px) { .amenities-story-grid { grid-template-columns:repeat(2,1fr); } .res-gallery-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:900px) { .res-story-grid,.specs-grid,.payment-split { grid-template-columns:1fr; gap:3rem; } .res-hero-title { font-size:3rem; } }
+@media(max-width:600px) { .res-hero { height:auto; padding:5rem 0 3rem; } .res-hero-title { font-size:2.4rem; } .amenities-story-grid,.res-gallery-grid { grid-template-columns:1fr; } .amenity-card { height:220px; } }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="res-hero">
+    <div class="container">
+        <div class="res-hero-inner animate-on-scroll">
+            <span class="res-hero-tag">Residential Living</span>
+            <h1 class="res-hero-title">Where <span>Love</span><br>Finds Its Home</h1>
+            <p class="res-hero-sub">More than walls and a roof — we build spaces where families grow, children laugh, and memories are made for a lifetime. Every home we build carries the warmth of every family that will live in it.</p>
+            <a href="/contact" class="res-hero-cta">Schedule a Visit</a>
+        </div>
+    </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="res-story">
+    <div class="container">
+        <div class="res-story-grid animate-on-scroll">
+            <div>
+                <span class="res-story-label">Our Philosophy</span>
+                <h2 class="res-story-title">Built for Every Stage of Life</h2>
+                <p class="res-story-text">From young couples stepping into their first home, to families growing together under one roof, to grandparents watching their grandchildren play in the garden — Alnitak homes are designed for every beautiful chapter of life.</p>
+                <p class="res-story-text">We believe a home is not just a real estate investment. It is the setting for your most precious moments. That is why we pour our heart into every square foot — from the strength of the structure to the warmth of the interiors.</p>
+                <p class="res-story-text">With 12+ years of experience and 200+ projects delivered, we build homes that stand strong for generations while offering the comfort and elegance that modern families deserve.</p>
+            </div>
+            <div>
+                <img class="res-story-img" src="{{ url_for('static', filename='images/landscape/kavitha_r2_portico_01.jpg') }}" alt="Beautiful landscape in Alnitak residential project">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="res-gallery">
+    <div class="container">
+        <div class="res-sec-header animate-on-scroll">
+            <span class="res-sec-label">Design & Gallery</span>
+            <h2 class="res-sec-title">Crafted with Five Pillars</h2>
+            <p style="font-family:'DM Sans',sans-serif;color:#718096;margin-top:0.75rem;max-width:560px;margin-left:auto;margin-right:auto;">Every master plan is designed around Light, Ventilation, Vaastu, Privacy, and Aesthetics.</p>
+        </div>
+        <div class="res-gallery-grid animate-on-scroll">
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/kavitha_liv_01.jpg') }}" alt="Elegant Living Room">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Living Room</div>
+                    <div class="overlay-desc">Premium Spatial Layout</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/fareetha_faritha_mam_kitchen_1.1.jpg') }}" alt="Modular Kitchen">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Modular Kitchen</div>
+                    <div class="overlay-desc">Ergonomic & Modern</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/kavitha_pooja_01.jpg') }}" alt="Pooja Room">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Pooja Room</div>
+                    <div class="overlay-desc">Traditional Vaastu Design</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/baby_mam_baby_mam_f.f_master_bedroom_2.jpg') }}" alt="Master Bedroom">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Master Bedroom</div>
+                    <div class="overlay-desc">Spacious & Cozy Interiors</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/kavitha_dining_01.jpg') }}" alt="Dining Hall">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Dining Hall</div>
+                    <div class="overlay-desc">Perfect Family Gathering Space</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/interiors/kavitha_stair_02.jpg') }}" alt="Internal Staircase">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Internal Staircase</div>
+                    <div class="overlay-desc">Architectural Elegance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="res-cta">
+    <div class="container animate-on-scroll">
+        <h2>Your Family's Dream Home Awaits</h2>
+        <p>Talk to our team today. We'll walk you through everything — from plot selection and design to possession and beyond.</p>
+        <a href="/contact" class="res-hero-cta">Book a Free Consultation</a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    function getDir(e, el) {
+        const r = el.getBoundingClientRect(), w = el.offsetWidth, h = el.offsetHeight;
+        const x = (e.clientX - r.left - w/2) * (w > h ? h/w : 1);
+        const y = (e.clientY - r.top - h/2) * (h > w ? w/h : 1);
+        return Math.round((Math.atan2(y,x) * 180/Math.PI + 180)/90 + 3) % 4;
+    }
+    function applyHover(e, el, enter) {
+        const ov = el.querySelector('.gallery-overlay');
+        const dirs = ['translateY(-100%)','translateX(100%)','translateY(100%)','translateX(-100%)'];
+        const t = dirs[getDir(e, el)];
+        if (enter) { ov.style.transition='none'; ov.style.transform=t; void ov.offsetWidth; ov.style.transition='transform 0.4s ease-out'; ov.style.transform='translate(0,0)'; }
+        else { ov.style.transition='transform 0.4s ease-out'; ov.style.transform=t; }
+    }
+    galleryItems.forEach(el => { el.addEventListener('mouseenter', e => applyHover(e,el,true)); el.addEventListener('mouseleave', e => applyHover(e,el,false)); });
+});
+</script>
+{% endblock %}

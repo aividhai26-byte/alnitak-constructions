@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Alnitak Constructions{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    .faq-category-section {
+        margin-bottom: 3.5rem;
+    }
+    .faq-category-title {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Hero Banner -->
+<section class="page-hero-banner" style="background-image: url('{{ url_for('static', filename='images/1 architectural line drawing  blueprint style graphic.jpg') }}');">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+        <h1 class="page-hero-title">Frequently Asked Questions</h1>
+        <div class="breadcrumb-list">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <span class="breadcrumb-separator">&rarr;</span>
+            <span class="active">FAQ</span>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Accordions -->
+<section class="section">
+    <div class="container" style="max-width: 900px;">
+        
+        <!-- Category 1: General -->
+        <div class="faq-category-section">
+            <h3 class="faq-category-title">General Questions</h3>
+            <div class="faq-accordion-container">
+                <!-- Q1 -->
+                <div class="faq-accordion-item active">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Who is the owner of Alnitak Constructions?</span>
+                        <span class="faq-icon-toggle">−</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Alnitak Constructions is owned and operated by Mr. Ramkumar Magheshwaran. The office is located at Mettupalayam, Tiruppur, Tamil Nadu.</p>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Where do you undertake construction projects?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>We primarily construct residential villas and commercial complexes throughout Tiruppur, Coimbatore, and surrounding regions in Tamil Nadu.</p>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Is the company registered under RERA/TN government?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Yes, Alnitak Constructions is a legally registered building construction firm with government registration license TN-28-0078526.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 2: Construction Process -->
+        <div class="faq-category-section">
+            <h3 class="faq-category-title">Construction Process</h3>
+            <div class="faq-accordion-container">
+                <!-- Q4 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">How long does it take to complete an individual villa?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>A standard individual G+1 villa of 2,000 to 2,500 sqft typically takes about 8 to 10 months to complete, including structural casting, brickwork, tiling, and modular woodwork.</p>
+                    </div>
+                </div>
+                <!-- Q5 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Do you follow Vaastu Shastra guidelines?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Yes, structural ventilation, wind flows, light corridors, and room positions (like kitchen in Agni corner, master bedroom in Kubera corner) are meticulously aligned with Vaastu principles during the planning phase.</p>
+                    </div>
+                </div>
+                <!-- Q6 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Do you supply custom elevation designs?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Yes, we specialize in modern 3D front elevations. We sketch customized facade layouts featuring concrete brackets, composite panelings, slate tile cladding, and cantilever balconies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 3: Pricing & Payments -->
+        <div class="faq-category-section">
+            <h3 class="faq-category-title">Pricing & Payments</h3>
+            <div class="faq-accordion-container">
+                <!-- Q7 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">What are your sqft construction rates?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Our G+1 building packages start from ₹2,350/sqft for the Basic tier, ₹2,550/sqft for the Standard tier (most popular), and ₹2,850/sqft for the Luxury specification plan.</p>
+                    </div>
+                </div>
+                <!-- Q8 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Are there any hidden costs?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>No, we operate with maximum transparency. All material specs, flooring choices, and brands are documented in our agreement contract. Government stamp papers, electricity deposits, and corporation receipt fees are billed separately at actual costs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 4: Legal & Approvals -->
+        <div class="faq-category-section">
+            <h3 class="faq-category-title">Legal & Corporation Approvals</h3>
+            <div class="faq-accordion-container">
+                <!-- Q9 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Do you arrange planning approvals directly?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Yes, our administrative legal team manages all corporation submissions, surveyor alignments, planning sanctions, and building permissions directly with the Tiruppur municipal bodies.</p>
+                    </div>
+                </div>
+                <!-- Q10 -->
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span class="faq-question-text">Can you arrange bank loans if I do not file IT returns?</span>
+                        <span class="faq-icon-toggle">+</span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>Yes, we coordinate directly with banking institutions to structure housing loans for self-employed individuals and business owners without standard IT files, aligning documentation accordingly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CTA Reusable Banner -->
+<section class="section" style="background-color: var(--bg-dark); color: var(--text-white);">
+    <div class="container">
+        <div class="split-wrapper" style="align-items: center;">
+            <div>
+                <h2 class="section-title" style="color: var(--text-white); margin-bottom: 0.75rem;">Still have questions?</h2>
+                <p style="color: var(--text-light); margin: 0; font-weight: 300;">Our Tiruppur office is happy to guide you on structural specifications and documentation queries.</p>
+            </div>
+            <div class="flex gap-md" style="justify-content: flex-end; align-items: center; flex-wrap: wrap;">
+                <a href="/contact" class="btn btn-primary">Contact Us Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <a href="https://wa.me/916382278908" target="_blank" rel="noopener" class="btn btn-outline-white">WhatsApp Inquiry</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
